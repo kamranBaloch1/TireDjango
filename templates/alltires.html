@@ -1,0 +1,26 @@
+{% include "./base.html" %} 
+{% load static %}
+
+
+{%block content%}
+
+
+<div class="container ">
+    <div class="row alltiresRow">
+        {% for product in products  %}
+        <div class="col-md-3 alltiresCol">
+            <a class="text-decoration-none" href="{% url 'productDetails' product.id %}">
+                <img class="alltiresImg" src="{{product.img.url}}" alt="" srcset="">
+                <h2 class="alltiresTitle">{{product.title}}</h2>
+                <p class="alltiresDesc">{{ product.desc|truncatechars:200 }}</p>
+               <p class="alltiresPrice" >${{product.price}}</p>
+               <button class="btn btn-outline-primary alltiresBtn">View</button>
+            </a>
+        </div>
+         {% endfor %}
+    </div>
+</div>
+
+
+{% include "footer.html" %}
+{%endblock content%}

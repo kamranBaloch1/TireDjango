@@ -1,0 +1,38 @@
+{% include "./base.html" %} 
+{% load static %}
+
+
+
+ {%block content%}
+ 
+
+
+ <div class="container signup-container ">
+     <div class="row">
+         <div class="col-md-6 mx-auto signup-design">
+             <center>
+                 <h2 style="font-family: 'Bebas Neue', cursive;">Login to Continue</h2>
+             </center>
+
+             <form method="post" class="mt-5">
+                 {%csrf_token%}
+                 <div class="mb-3">
+                     <label for="exampleInputusername" class="form-label signup-form-label ">Username</label>
+                     <input  placeholder="Username" name="username" required type="text" class="form-control signup-form-input" id="exampleInputusername"
+                         aria-describedby="usernameHelp">
+
+                 </div>
+                 <div class="mb-3">
+                     <label class="form-label signup-form-label">Password</label>
+                     <input placeholder="Password" name="password" required type="password" class="form-control signup-form-input">
+
+                 </div>
+
+                 <button type="submit" class="btn signup-btn bg-primary text-white">Login</button>
+                 <center><a style="text-decoration: none;color:black;font-size:0.9rem;font-weight:bold" href="{% url 'register' %}"><p class="span-login mt-2">OR SIGNUP</p></a></center>
+             </form>
+         </div>
+     </div>
+ </div>
+ {% include "footer.html" %}
+ {%endblock content%}

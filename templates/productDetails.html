@@ -1,0 +1,105 @@
+{% include "./base.html" %} 
+{% load static %}
+
+
+    {%block content%}
+
+     
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <img class="productDetailImg" src="{{products.img.url}}" alt="" srcset="">
+            </div>
+            <div class="col-md-6">
+                   <h2 class="proDetailTitle">{{products.title}}</h2>
+                   <hr>
+                   <p class="proDetailDesc">{{products.desc}}</p>
+                   
+                   <p>Brand : <span class="proDetailPrice">{{products.brand}}</span></p>
+                   <p>Tire Size : <span class="proDetailPrice">{{products.tire_size}}</span></p>
+                   <p>Vehicle : <span class="proDetailPrice">{{products.vehicle}}</span></p>
+                   <p class="proDetailPrice">${{products.price}}</p>
+                   
+                   {% if is_item_present  %}
+       
+                   <form action="/showcart" class="d-inline">
+                    <input type="hidden" value="{{products.id}}"  id="product_id" name="product_id"/>
+                    <button type="submit" class="btn btn-warning shadow px-5 py-2 ">Go to Cart</button>
+                   </form>
+                
+                   
+                   {% else %}
+                   <form action="/cart" class="d-inline mt-2">
+                    <input type="hidden" value="{{products.id}}"  id="product_id" name="product_id"/>
+                    <button type="submit" class="btn btn-primary shadow px-5 py-2 ">Add to Cart</button>
+                   </form>
+                
+                   {% endif %}
+           
+                </div>
+
+        </div>
+    </div>
+
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                {% if user.is_authenticated %}
+                <h4>Reviews</h4>
+                {%else%}
+                <h4>Login to Post a Review </h4>
+                {%endif%}
+
+                {% if user.is_authenticated %}
+                <form action="/postComment" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                       
+            <Textarea placeholder="Enter review here" rows="4" required class="form-control mt-4" type="text" name="comment"></Textarea>
+                    </div>
+                    <input type="hidden" name="postSno" value="{{products.id}}">
+                    <input class="btn btn-primary mt-2" type="submit" value="Submit">
+                </form>
+
+                {%else%}
+
+
+                <div class="col-md-2  non-login-btn mt-2 mt-3">
+                    <a style="width: 200px;" class="btn btn-primary mt-1" href="{% url 'login' %}">Login</a>
+                    <a style="width: 200px;" class="btn btn-primary mt-1" href="{% url 'signup' %}">Singup</a>
+                </div>
+
+                {%endif%}
+
+
+
+            </div>
+        </div>
+
+        <!-- showing comments row -->
+
+       
+
+        {%for comment in comments%}
+        <div class="mt-4 cmnt-row">
+            <div class="cmnt-img">
+                <img class="rounded-circle" width="50px" height="50px" src="/static/img/user.png" alt="" srcset="">
+            </div>
+            <div class="col-md-6 cmnt-text">
+                <span class="cmnt-name">{{comment.user.username}}</span>
+                <span class="px-3" style="font-size: 0.9rem;color: grey;">{{comment.Date}}</span>
+                <h6 class="mt-2">
+                    {{comment.comment}}
+
+                </h6>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+
+
+
+
+    {% include "footer.html" %}
+    {%endblock content%}

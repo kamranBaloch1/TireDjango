@@ -1,0 +1,48 @@
+
+{% include "./base.html" %} 
+{% load static %}
+ {%block content%}
+
+
+ <div class="container signup-container mt-4">
+     <div class="row">
+         <div class="col-md-6 mx-auto signup-design">
+             <center>
+                 <h2 style="font-family: 'Bebas Neue', cursive;">Create an Account </h2>
+             </center>
+
+             <form method="post" class="mt-4">
+                 {%csrf_token%}
+                 <div class="mb-3">
+                     <label for="exampleInputusername" class="form-label signup-form-label ">Username</label>
+                     <input placeholder="Type your Username" name="username" required type="text" class="form-control signup-form-input" id="exampleInputusername"
+                         aria-describedby="usernameHelp">
+
+                 </div>
+                 <div class="mb-3">
+                     <label for="exampleInputEmail1" class="form-label signup-form-label">Email address</label>
+                     <input placeholder="Type your Email"  name="email" required type="email" class="form-control signup-form-input" id="exampleInputEmail1"
+                         aria-describedby="emailHelp">
+
+                 </div>
+                 <div class="mb-3">
+                     <label class="form-label signup-form-label">Password</label>
+                     <input placeholder="Type your Password"  name="password" required type="password" class="form-control signup-form-input">
+
+                 </div>
+
+                 <button type="submit" class="btn signup-btn bg-primary text-white">Register</button>
+                 <center><a style="text-decoration: none;color:black;font-size:0.9rem;font-weight:bold" href="{% url 'login' %}"><p class="span-login mt-2">OR LOGIN</p></a></center>
+             </form>
+         </div>
+     </div>
+ </div>
+
+
+
+
+
+
+
+ {% include "footer.html" %}
+ {%endblock content%}

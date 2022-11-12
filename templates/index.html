@@ -1,0 +1,287 @@
+{% include "./base.html" %} 
+{% load static %}
+
+{%block content%}
+
+
+<div class="container mt-5 homeContainer">
+  <div class="row">
+    <div class="col-md-6 sm-12">
+        <img class="HomeCarGif" src="{% static 'img/car.gif' %}" alt="" srcset="">
+    </div>
+    <div class="col-md-6 sm-12">
+         <center>
+            <h2 class="HomeHeroTitle">
+                Replace tires in <br> <span class="HomeHeroTitleSpan">a city nearby</span>.
+              </h2>
+         </center>
+        <form action="search" method="GET" id="homeForm" class="d-flex" role="search">
+            <input required name="search" id="homeFormInput" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button id="homeFormInputBtn" class="btn btn-outline-primary rounded-pill" type="submit">Search</button>
+          </form> 
+            <div class="SearchFilter">
+                    <div class="brands">
+                       <h3 class="brandTitle">Search by brands</h3>
+                       {% for brand in brands %}
+                       <a class="text-decoration-none" href="{% url 'filters' brand.brand%}"><p class="brandText">{{brand.brand}}</p></a>
+                       {% endfor %}
+                      
+                    </div>
+                    <div class="filters">
+                       <h3 class="brandTitle">Filter by</h3>
+                       <a data-bs-toggle="modal" data-bs-target="#tiresizeModal" class="text-decoration-none" href=""><p class="brandText">Tire Size</p></a>
+                       <a data-bs-toggle="modal" data-bs-target="#vehicleModal" class="text-decoration-none" href=""><p class="brandText">Vehicle</p></a>
+                    </div>
+                  
+                  </div>
+            </div>
+{% comment %}             
+          <p class="HomeFormText">
+            Tires & installation. Pay all online.
+          </p> {% endcomment %}
+    </div>
+  </div>
+</div>
+
+
+{% comment %} Section 2 start {% endcomment %}
+
+
+      <div class="container mb-5">
+        <div class="row Sec2row">
+            <div id="Sec2Col" class="col-md-2 Sec2Col">
+                <i style="font-size:22px" class="fa fa-truck"></i>
+                 <h4 class="Sec2ColText">Free Shipping <span>></span></h4>
+                 
+            </div>
+            <div class="col-md-2 Sec2Col">
+                <i style="font-size:22px" class="fa fa-certificate"></i>
+                 <h4 class="Sec2ColText">
+                    Affirm 
+                     <span>></span></h4>
+                 
+            </div>
+            <div class="col-md-2 Sec2Col">
+                <i style="font-size:22px" class="fa fa-check"></i>
+                 <h4 class="Sec2ColText">Best Price <span>></span></h4>
+                 
+            </div>
+            <div class="col-md-2 Sec2Col">
+                <i style="font-size:22px" class="fa fa-fire"></i>
+                 <h4 class="Sec2ColText">20% off daily deals <span>></span></h4>
+                 
+            </div>
+        </div>
+      </div>
+
+
+{% comment %} Section 2 end {% endcomment %}
+
+
+{% comment %} Section 3 Start {% endcomment %}
+
+
+<div class="container">
+    <div class="row">
+        <center> <h2 class="sec3title mb-5">
+        How it works.
+        <br>
+          <span>TIRE2GO tire replacement & installation.</center> 
+
+    <div class="col-md-6 sec3Col"> 
+
+       <div>
+          <i style="font-size:35px" class="fa fa-motorcycle" aria-hidden="true"></i>
+       </div>
+
+        <h4 class="mt-4">Find the perfect tire.</h4>
+        <p>
+        Browse our huge catalog or go with personalized recommendations for you.
+With over 244 verified installers nearby, we are sure there’s a shop for you.
+</p>
+       <div class="mt-4">
+          <i style="font-size:35px" class="fa fa-car" aria-hidden="true"></i>
+       </div>
+
+        <h4 class="mt-4"> Schedule and pay. Drive confidently.</h4>
+        <p>
+
+            All-inclusive pricing. Pick a time and pay online. Tires will be delivered to the shop.
+
+24/7 roadside assistance included with installation.
+        </p>
+                   
+    </div>
+    <div class="col-md-6">
+          <img class="sec3TireImg" src="{% static 'img/tireImg.png' %}" alt="">
+    </div> 
+        
+    </div>
+</div>
+
+
+{% comment %} Section 3 end {% endcomment %}
+
+
+
+
+{% comment %} Section 4 start {% endcomment %}
+
+ 
+  <div class="container mt-5 mb-5">
+      <div class="row">
+          <center>
+            <h2 class="sec4title">
+              Why choose
+              TIRE2GO?
+             </h2>
+          </center>
+
+           <div class="col-md-6 mx-auto mt-5">
+               <div>
+                
+               <h3 class="sec4Text1">
+                Cash back Get cash back with manufacturer rebates on top brands like BF Goodrich, Firestone, Pirelli & more
+             </h3>
+             <p class="sec4Text2">
+              Rebates are issued via prepaid gift card by the manufacturer after online or mail in submission. See manufactuer offer details for submission instructions and terms & conditions.
+             </p>
+               </div>
+               <hr>
+               <div>
+                
+               <h3 class="sec4Text1">
+                All-inclusive prices.
+                Pay all online.
+             </h3>
+             <p class="sec4Text2">
+              No surprises. Get best prices on tires and installation services upfront. Book and pay all online.
+
+
+             </p>
+               </div>
+               <hr>
+               <div>
+                
+               <h3 class="sec4Text1">
+                Refer a friend 
+                Give up to 20% off and get $10 gift card
+             </h3>
+             <p class="sec4Text2">
+              Give friends upto 20% off, and you'll get $10 gift card when they purchase.
+
+
+             </p>
+               </div>
+               <hr>
+
+           </div>
+      </div>
+  </div>
+
+
+{% comment %} Section 4 end {% endcomment %}
+
+
+{% comment %} Section Chat start {% endcomment %}
+
+    
+
+{% comment %} Section Chat end {% endcomment %}
+<div class="container mb-5">
+   <div id="chatSecRow" class="row ">
+      <h3 class="chatSecTitle">Need live support?</h3>
+      <div id="chatSecCol" class="col-md-2 mt-5 ">
+              <div class="secChatIcon">
+                <a target="_blank" href="https://wa.me/222222222"><i style="font-size:30px;color:white" class="fa fa-whatsapp " aria-hidden="true"></i></a>
+              </div>
+          
+               <h5 class="chatSecText1">Whatsapp</h5>
+               <span class="chatSecText2">0444444444</span>
+           </div>
+      <div id="chatSecCol" class="col-md-2 mt-5 ">
+              <div class="secChatIcon">
+                <a target="_blank" href="tel:2222222222"> <i style="font-size:30px;color:white" class="fa fa-comment " aria-hidden="true"></i></a>
+              </div>
+          
+               <h5 class="chatSecText1">SMS</h5>
+               <span class="chatSecText2">0444444444</span>
+           </div>
+      <div id="chatSecCol" class="col-md-2 mt-5 ">
+              <div class="secChatIcon">
+                <a target="_blank" href="tel:22222222222">  <i style="font-size:30px;color:white" class="fa fa-phone " aria-hidden="true"></i></a>
+              </div>
+          
+               <h5 class="chatSecText1">Call</h5>
+               <span class="chatSecText2">0444444444</span>
+           </div>
+      <div id="chatSecCol" class="col-md-2 mt-5 ">
+              <div class="secChatIcon">
+                <a target="_blank" href="mailto: tire@example.com"><i style="font-size:30px;color:white" class="fa fa-comment " aria-hidden="true"></i></a>
+              </div>
+          
+               <h5 class="chatSecText1">Email</h5>
+               <span class="chatSecText2">tire@gmail.com</span>
+           </div>
+      </div>
+   </div>
+
+</div>
+
+
+<!-- Tire Size  Modal -->
+<div class="modal fade" id="tiresizeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Enter the Tire Size</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="tiresize" method="GET"   role="search">
+          {%csrf_token%}
+          
+          <div class="mb-3">
+              <input placeholder="Enter tire size" name="tireSize" required type="number" class="form-control contact-input">
+          </div>
+         
+
+
+          <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<!-- vehicle  Modal -->
+<div class="modal fade" id="vehicleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Enter the Vehicle Name</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="vehicle" method="GET"   role="search">
+          {%csrf_token%}
+          
+          <div class="mb-3">
+              <input placeholder="Enter vehicle name" name="vehicle" required type="text" class="form-control contact-input">
+          </div>
+         
+
+
+          <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+{% include "footer.html" %}
+
+{%endblock content%}

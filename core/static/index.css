@@ -1,0 +1,253 @@
+.body{
+  overflow: hidden;
+}
+
+.navLogo {
+  width: 65px;
+  height: 65px;
+  margin: 10px 40px;
+}
+/* .navTitle{
+    color:#C2C1B9;
+    font-weight: 600;
+    font-size: 1.3rem;
+} */
+
+.homeContainer {
+  margin: 50px 0px;
+}
+
+.HomeCarGif {
+  width: 90%;
+  height: 350px;
+}
+.HomeHeroTitle {
+  color: black;
+  font-weight: bold;
+  font-size: 2.4rem;
+}
+.HomeHeroTitleSpan {
+  color: gray;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+#homeFormInput {
+  height: 47px;
+  width: 100%;
+  border: 1px #0b5ed7 solid;
+  background-color: #0b5ed7;
+  border-radius: 20px;
+
+  color: white;
+}
+
+#homeFormInput::placeholder {
+  color: white;
+}
+
+#homeFormInputBtn {
+  width: 100px;
+}
+#homeForm {
+  margin: 30px 0px 0px 0px;
+}
+.HomeFormText {
+  margin: 20px 50px;
+  color: gray;
+  font-weight: 600;
+}
+
+.Sec2Col {
+  border: solid gray 1px;
+  text-align: center;
+  border-radius: 20px;
+  padding: 20px 0px;
+  margin: 0px 10px;
+}
+.Sec2Col:hover {
+  background-color: rgb(230, 230, 230);
+  cursor: pointer;
+}
+#Sec2Col {
+  margin-left: 100px;
+}
+.Sec2ColText {
+  font-size: 15px;
+  padding: 5px 0px;
+}
+.sec3TireImg{
+    width: 70%;
+    height: 300px;
+}
+.sec3title{
+    color: orange;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+.sec4Text1{
+  color: orangered;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.sec4title{
+  color:orange
+   
+}
+
+.chatSecTitle{
+
+  color: black;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.secChatIcon{
+  background-color: orange;
+  border-radius: 100%;
+  width: 70px;
+  height: 70px;
+  text-align: center;
+  padding-top: 10px;
+}
+.secChatIcon:hover{
+  background-color: rgb(192, 127, 7);
+  cursor: pointer;
+}
+.chatSecText1{
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 0px;
+
+}
+
+.chatSecText2{
+  font-size: 0.8rem;
+  font-weight: 600;
+
+}
+#chatSecRow{
+  margin-left: 70px;
+}
+
+.alltiresImg{
+  width: 250px;
+  height: 200px;
+}
+.alltiresTitle{
+  color:black;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: 15px 15px 0px 0px;
+}
+.alltiresDesc{
+  color:black;
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin: 10px 15px 0px 0px;
+  text-align: left;
+}
+.alltiresPrice{
+  color:black;
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin: 10px 15px 0px 0px;
+  text-align: left;
+  font-weight: bold;
+}
+.alltiresCol{
+  padding-top: 40px;
+}
+.alltiresBtn{
+  width: 100px;
+  margin-top: 10px;
+}
+.alltiresRow{
+  padding: 20px;
+}
+
+.productDetailImg{
+   width: 80%;
+   height: 400px;
+}
+.proDetailTitle{
+  font-size: 2rem;
+  font-weight: bold;
+}
+.proDetailDesc{
+  font-size: 15.3px;
+ 
+  color: black;
+}
+.proDetailPrice{
+  font-size: 0.9rem;
+   font-weight: bold;
+  color: black;
+}
+.proBtn{
+  width: 150px;
+}
+.lernTitle{
+  font-size: 1.6rem;
+  color: black;
+  font-weight: 700;
+}
+.LernContainer{
+  margin-top: 50px;
+}
+
+.signup-design {
+  background-color: white;
+  margin-top: 50px;
+  padding: 40px;
+  width: 500px;
+
+}
+.signup-form-label {
+  font-weight: bold;
+}
+
+.signup-form-input {
+  background-color: #D1D5DB;
+}
+
+.signup-btn {
+  width: 300px;
+  margin-left: 30px;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+
+}
+.brandTitle{
+  color:gray;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin: 10px 0px 0px 0px;
+}
+.brandText{
+  color:gray;
+  font-weight: bold;
+  font-size:12px;
+  margin: 5px 0px 0px 0px;
+}
+.SearchFilter{
+  display: flex;
+  flex-direction: row;
+  
+}
+.filters{
+  margin-left: 50px;
+}
+.filterBrand{
+  color: gray;
+  text-decoration: none;
+  font-weight: bold;
+  margin:6px 0px 0px 0px;
+  font-size: 0.9rem;
+
+}
+.de{
+  color: red;
+}

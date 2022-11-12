@@ -1,0 +1,55 @@
+{% include "./base.html" %} 
+{% load static %}
+
+{% block main-content %}
+
+
+<div  class="container  mt-5">
+    <div class="row" >
+        <div class="col-md-6 mx-auto">
+            <h2>Contact us</h2>
+            <div class="contact-img">
+                <img height="130px" width="130px" class="img-fluid mx-auto rounded-pill  my-4 py-2" src="/static/img/logo.jpeg"
+                    alt="" srcset="">
+            </div>
+            <h5 class="contact-title">Feel free to ask us anything!</h5>
+        </div>
+        <div  class="col-md-6 contactRow">
+            <form method="post">
+                {%csrf_token%}
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label"><b>FULL NAME</b></label>
+                    <input name="fullname" required type="text" class="form-control contact-input">
+
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label"><b>EMAIL</b></label>
+                    <input name="email" required type="email" class="form-control contact-input" id="exampleInputEmail1"
+                        aria-describedby="emailHelp">
+
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label"><b>PHONE</b></label>
+                    <input name="phone" required type="phone" class="form-control contact-input">
+
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label"><b>MESSAGE</b></label>
+
+                    <textarea name="message" required class="form-control contact-input" name="" id="" cols="30"
+                        rows="5"></textarea>
+                </div>
+
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+{% include "footer.html" %}
+{% endblock main-content %}

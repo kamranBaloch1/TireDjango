@@ -1,0 +1,65 @@
+{% include "./base.html" %} 
+{% load static %}
+
+
+ {%block content%}
+
+ <div class="container mt-3 SearchContainer">
+    <div class="row">
+
+      <div class="col-md-6 sm-12 mx-auto">
+           <center>
+              <h2 class="HomeHeroTitle">
+                  Replace tires in <br> <span class="HomeHeroTitleSpan">a city nearby</span>.
+                </h2>
+           </center>
+           <form action="{% url 'search' %}" method="GET" id="homeForm" class="d-flex" role="search">
+              <input required name="search" id="homeFormInput" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button id="homeFormInputBtn" class="btn btn-outline-primary rounded-pill" type="submit">Search</button>
+            </form>
+            <div class="SearchFilter">
+                <div class="brands">
+                   <h3 class="brandTitle">Search by brands</h3>
+                   {% for brand in brands %}
+                   <a class="text-decoration-none" href="{% url 'filters' brand.brand%}"><p class="brandText">{{brand.brand}}</p></a>
+                   {% endfor %}
+                  
+                </div>
+                <div class="filters">
+                   <h3 class="brandTitle">Filter by</h3>
+                   <p class="brandText">Tire Size</p>
+                   <p class="brandText">Vehicle</p>
+                </div>
+              
+              </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+
+
+ <div class="container ">
+    <div class="row alltiresRow">
+        
+        {% for filter in filterBrand  %}
+        <div class="col-md-3 alltiresCol">
+            <a class="text-decoration-none" href="{% url 'productDetails' filter.id %}">
+                <img class="alltiresImg" src="{{filter.img.url}}" alt="" srcset="">
+                <h2 class="alltiresTitle">{{filter.title}}</h2>
+                <p class="alltiresDesc">{{filter.desc|truncatechars:200 }}</p>
+                <P class="filterBrand"><span >Brand :</span> {{filter.brand}}</P>
+                <P class="filterBrand"><span >Tire Size :</span> {{filter.tire_size}}</P>
+               <p class="alltiresPrice" >${{filter.price}}</p>
+               <button class="btn btn-outline-primary alltiresBtn">View</button>
+            </a>
+        </div>
+         {% endfor %}
+    </div>
+</div>
+
+
+{% include "footer.html" %}
+ {%endblock content%}

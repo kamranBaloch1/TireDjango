@@ -1,0 +1,134 @@
+{% include "./base.html" %} 
+{% load static %}
+
+
+ {%block content%}
+
+ <div class="container mt-3 SearchContainer">
+    <div class="row">
+
+      <div class="col-md-6 sm-12 mx-auto">
+           <center>
+              <h2 class="HomeHeroTitle">
+                  Replace tires in <br> <span class="HomeHeroTitleSpan">a city nearby</span>.
+                </h2>
+           </center>
+           <form action="{% url 'search' %}" method="GET" id="homeForm" class="d-flex" role="search">
+              <input required name="search" id="homeFormInput" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button id="homeFormInputBtn" class="btn btn-outline-primary rounded-pill" type="submit">Search</button>
+            </form>
+            
+            <div class="SearchFilter">
+              <div class="SearchFilter">
+                <div class="brands">
+                   <h3 class="brandTitle">Search by brands</h3>
+                   {% for brand in brands %}
+                   <a class="text-decoration-none" href="{% url 'filters' brand.brand%}"><p class="brandText">{{brand.brand}}</p></a>
+                   {% endfor %}
+                  
+                </div>
+                <div class="filters">
+                   <h3 class="brandTitle">Filter by</h3>
+                   <a data-bs-toggle="modal" data-bs-target="#tiresizeModal" class="text-decoration-none" href=""><p class="brandText">Tire Size</p></a>
+                   <a data-bs-toggle="modal" data-bs-target="#vehicleModal" class="text-decoration-none" href=""><p class="brandText">Vehicle</p></a>
+                </div>
+              
+              </div>
+             
+            </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+{% if  filterBrand|length < 1%}
+
+<center> 
+    <div class="">
+        <p class=""> 
+            No Products found from this size  <b>{{query}} <br><br> 
+          </p>
+    </div>
+</center>
+
+
+{% else %}
+
+ <div class="container ">
+    <div class="row alltiresRow">
+        {% for product in filterBrand  %}
+        <div class="col-md-3 alltiresCol">
+            <a class="text-decoration-none" href="{% url 'productDetails' product.id %}">
+                <img class="alltiresImg" src="{{product.img.url}}" alt="" srcset="">
+                <h2 class="alltiresTitle">{{product.title}}</h2>
+                <p class="alltiresDesc">{{ product.desc|truncatechars:200 }}</p>
+                <P class="filterBrand"><span >Brand :</span> {{product.brand}}</P>
+                <P class="filterBrand"><span >Tire Size :</span> {{product.tire_size}}</P>
+                <P class="filterBrand"><span >Vehicle:</span> {{product.vehicle}}</P>
+               <p class="alltiresPrice" >${{product.price}}</p>
+               <button class="btn btn-outline-primary alltiresBtn">View</button>
+            </a>
+        </div>
+         {% endfor %}
+    </div>
+</div>
+
+{% endif %}
+
+
+<!-- Tire Size  Modal -->
+<div class="modal fade" id="tiresizeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Enter the Tire Size</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="../tiresize" method="GET"   role="search">
+          {%csrf_token%}
+          
+          <div class="mb-3">
+              <input placeholder="Enter tire size" name="tireSize" required type="number" class="form-control contact-input">
+          </div>
+         
+
+
+          <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<!-- vehicle  Modal -->
+<div class="modal fade" id="vehicleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Enter the Vehicle Name</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="../vehicle" method="GET"   role="search">
+          {%csrf_token%}
+          
+          <div class="mb-3">
+              <input placeholder="Enter vehicle name" name="vehicle" required type="text" class="form-control contact-input">
+          </div>
+         
+
+
+          <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+{% include "footer.html" %}
+ {%endblock content%}

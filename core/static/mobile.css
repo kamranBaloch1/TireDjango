@@ -1,0 +1,84 @@
+.navLogo {
+  width: 45px;
+  height: 45px;
+  margin: 0px 0px;
+}
+.homeContainer {
+  margin: 30px 0px;
+}
+.HomeCarGif {
+  width: 90%;
+  height: 180px;
+  margin: 0px 10px;
+}
+.HomeHeroTitle {
+  margin: 20px 0px;
+  font-size: 2rem;
+}
+.HomeHeroTitleSpan {
+  font-size: 1.8rem;
+}
+
+.Sec2Col {
+  margin: 20px 0px;
+}
+#Sec2Col {
+  margin-left: 0px;
+}
+.Sec2row {
+  padding: 10px 100px;
+}
+.sec3title {
+  color: orange;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+.sec3TireImg {
+  width: 70%;
+  height: 200px;
+  margin-left: 20px;
+}
+.sec3Col {
+  padding-left: 5px;
+}
+.sec4Text1 {
+  font-size: 1.1rem;
+}
+.sec4Text2 {
+  font-size: 1rem;
+}
+.alltiresCol {
+  margin-top: 20px;
+}
+.productDetailImg {
+  width: 80%;
+  height: 200px;
+  margin-left: 20px;
+}
+.proDetailTitle {
+  margin-top: 30px;
+  font-size: 1.5rem;
+}
+
+.lernTitle {
+  font-size: 1.4rem;
+}
+
+.signup-btn {
+  width: 250px;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.contactRow{
+  padding:  0px 10px;
+}
+.contact-title{
+  margin-bottom: 30px;
+}
+.EmptycartImg{
+  margin-top: 100px;
+  width: 300px;
+  height: 200px;
+}
+
